@@ -1,0 +1,7 @@
+# Ignorar todo excepto el archivo HTML
+*
+
+# Pero incluir el HTML
+!pan-arizpe-brand-identity.html
+!.gitignore
+

@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pan Arizpe — Brand Identity System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* === PALETA PRIMARIA === */
+            /* Terracota Pulque - El corazón de la fermentación */
+            --terracota-900: #6B2D1F;
+            --terracota-800: #8B3D2A;
+            --terracota-700: #A84A32;
+            --terracota-600: #C45A3D;
+            --terracota-500: #D4704F;
+            --terracota-400: #E08A6A;
+            --terracota-300: #EBA78A;
+            --terracota-200: #F5C5AD;
+            --terracota-100: #FBE4D7;
+            --terracota-50: #FEF5F0;
+
+            /* Arena del Desierto - La tierra del norte */
+            --arena-900: #3D3425;
+            --arena-800: #5C4E38;
+            --arena-700: #7A684A;
+            --arena-600: #98825C;
+            --arena-500: #B69C6E;
+            --arena-400: #C7B18A;
+            --arena-300: #D8C7A6;
+            --arena-200: #E9DCC3;
+            --arena-100: #F5EDE0;
+            --arena-50: #FDFAF5;
+
+            /* Carbón Ceniza - La autoridad */
+            --carbon-900: #1A1918;
+            --carbon-800: #2D2B29;
+            --carbon-700: #403E3B;
+            --carbon-600: #54514D;
+            --carbon-500: #6B6862;
+            --carbon-400: #8A867F;
+            --carbon-300: #A9A59D;
+            --carbon-200: #C9C5BD;
+            --carbon-100: #E4E2DD;
+            --carbon-50: #F4F3F1;
+
+            /* === PALETA SECUNDARIA === */
+            /* Oro Tiempo - Acentos de lujo */
+            --oro-700: #8B6914;
+            --oro-600: #A97F1A;
+            --oro-500: #C79620;
+            --oro-400: #D4AA40;
+            --oro-300: #E1BE60;
+
+            /* Maguey Verde - Referencia al pulque */
+            --maguey-700: #2D4A3E;
+            --maguey-600: #3D6353;
+            --maguey-500: #4E7C68;
+            --maguey-400: #6A9580;
+
+            /* Crema Pan - El producto */
+            --crema-500: #F5E6D0;
+            --crema-400: #F9F0E3;
+            --crema-300: #FDFAF5;
+
+            /* === TIPOGRAFÍAS === */
+            --font-display: 'Playfair Display', serif;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'DM Sans', sans-serif;
+
+            /* === ESPACIADO === */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            --space-4xl: 6rem;
+
+            /* === TRANSICIONES === */
+            --transition-fast: 150ms ease;
+            --transition-base: 300ms ease;
+            --transition-slow: 500ms ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--crema-300);
+            color: var(--carbon-800);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(170deg, var(--carbon-900) 0%, var(--carbon-800) 40%, var(--terracota-900) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(196, 90, 61, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(139, 61, 42, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            padding: var(--space-xl);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-tagline {
+            font-family: var(--font-serif);
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 400;
+            color: var(--arena-300);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-lg);
+            animation: fadeInUp 1.2s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-logo {
+            margin-bottom: var(--space-md);
+            animation: fadeInUp 1.2s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .hero-logo svg {
+            width: clamp(280px, 50vw, 450px);
+            height: auto;
+        }
+        
+        .hero-logo img,
+        .hero-logo object {
+            width: clamp(280px, 50vw, 450px);
+            height: auto;
+            filter: brightness(0) invert(0.95);
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-serif);
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-weight: 400;
+            font-style: italic;
+            color: var(--terracota-300);
+            max-width: 500px;
+            margin: 0 auto;
+            animation: fadeInUp 1.2s ease 0.6s forwards;
+            opacity: 0;
+        }
+
+        .hero-year {
+            position: absolute;
+            bottom: var(--space-3xl);
+            font-family: var(--font-display);
+            font-size: clamp(4rem, 15vw, 12rem);
+            font-weight: 400;
+            color: rgba(245, 230, 208, 0.04);
+            letter-spacing: -0.02em;
+            z-index: 0;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: var(--space-2xl);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--arena-400);
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            animation: fadeInUp 1.2s ease 1s forwards, bounce 2s ease-in-out infinite 2s;
+            opacity: 0;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        .scroll-indicator svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        /* === NAVIGATION === */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: var(--space-lg) var(--space-2xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+            transition: background var(--transition-base), backdrop-filter var(--transition-base);
+        }
+
+        nav.scrolled {
+            background: rgba(26, 25, 24, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--crema-400);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-xl);
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--arena-300);
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-links a:hover {
+            color: var(--terracota-400);
+        }
+
+        /* === SECTIONS === */
+        section {
+            padding: var(--space-4xl) var(--space-2xl);
+        }
+
+        .section-label {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--terracota-600);
+            margin-bottom: var(--space-md);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 500;
+            color: var(--carbon-900);
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-subtitle {
+            font-family: var(--font-serif);
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            font-weight: 400;
+            font-style: italic;
+            color: var(--carbon-600);
+            max-width: 600px;
+        }
+
+        /* === CONCEPTO === */
+        #concepto {
+            background: var(--crema-300);
+            position: relative;
+        }
+
+        .concepto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4xl);
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-top: var(--space-3xl);
+        }
+
+        @media (max-width: 900px) {
+            .concepto-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .concepto-card {
+            background: white;
+            padding: var(--space-2xl);
+            border-radius: 2px;
+            box-shadow: 0 2px 40px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--arena-100);
+        }
+
+        .concepto-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--carbon-800);
+            margin-bottom: var(--space-md);
+        }
+
+        .concepto-card p {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            color: var(--carbon-600);
+            line-height: 1.7;
+        }
+
+        .concepto-card .highlight {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--terracota-700);
+        }
+
+        .values-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+
+        .value-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+        }
+
+        .value-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--terracota-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .value-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--terracota-700);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .value-content h4 {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--carbon-800);
+            margin-bottom: var(--space-xs);
+        }
+
+        .value-content p {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: var(--carbon-500);
+        }
+
+        /* === COLORES === */
+        #colores {
+            background: var(--carbon-900);
+            color: var(--crema-400);
+        }
+
+        #colores .section-label {
+            color: var(--terracota-400);
+        }
+
+        #colores .section-title {
+            color: var(--crema-400);
+        }
+
+        #colores .section-subtitle {
+            color: var(--arena-400);
+        }
+
+        .color-section {
+            margin-top: var(--space-3xl);
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .color-section-title {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--arena-300);
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-sm);
+            border-bottom: 1px solid var(--carbon-700);
+        }
+
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-3xl);
+        }
+
+        .color-card {
+            background: var(--carbon-800);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform var(--transition-base);
+        }
+
+        .color-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .color-swatch {
+            height: 120px;
+            position: relative;
+        }
+
+        .color-swatch::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+        }
+
+        .color-info {
+            padding: var(--space-md);
+        }
+
+        .color-name {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--crema-400);
+            margin-bottom: var(--space-xs);
+        }
+
+        .color-hex {
+            font-family: 'SF Mono', 'Monaco', monospace;
+            font-size: 0.75rem;
+            color: var(--arena-400);
+            letter-spacing: 0.05em;
+        }
+
+        .color-description {
+            font-family: var(--font-serif);
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--carbon-400);
+            margin-top: var(--space-sm);
+        }
+
+        .color-scale {
+            display: flex;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: var(--space-lg);
+        }
+
+        .color-scale-item {
+            flex: 1;
+            height: 60px;
+            position: relative;
+            transition: transform var(--transition-fast);
+        }
+
+        .color-scale-item:hover {
+            transform: scaleY(1.1);
+            z-index: 1;
+        }
+
+        .color-scale-label {
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'SF Mono', monospace;
+            font-size: 0.6rem;
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+
+        .color-scale-item:hover .color-scale-label {
+            opacity: 1;
+        }
+
+        /* === TIPOGRAFÍA === */
+        #tipografia {
+            background: linear-gradient(180deg, var(--crema-300) 0%, white 100%);
+        }
+
+        .tipo-showcase {
+            max-width: 1400px;
+            margin: var(--space-3xl) auto 0;
+        }
+
+        .tipo-family {
+            margin-bottom: var(--space-4xl);
+            padding-bottom: var(--space-3xl);
+            border-bottom: 1px solid var(--arena-200);
+        }
+
+        .tipo-family:last-child {
+            border-bottom: none;
+        }
+
+        .tipo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: var(--space-xl);
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .tipo-name {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--terracota-600);
+        }
+
+        .tipo-use {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            color: var(--carbon-500);
+            background: var(--arena-100);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 20px;
+        }
+
+        .tipo-sample-display {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 500;
+            color: var(--carbon-900);
+            line-height: 1;
+            margin-bottom: var(--space-lg);
+        }
+
+        .tipo-sample-serif {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 400;
+            color: var(--carbon-800);
+            line-height: 1.2;
+            margin-bottom: var(--space-lg);
+        }
+
+        .tipo-sample-serif em {
+            font-style: italic;
+            color: var(--terracota-700);
+        }
+
+        .tipo-sample-sans {
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            color: var(--carbon-600);
+            line-height: 1.7;
+            max-width: 700px;
+        }
+
+        .tipo-weights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+
+        .tipo-weight {
+            text-align: center;
+        }
+
+        .tipo-weight-sample {
+            font-size: 2rem;
+            margin-bottom: var(--space-xs);
+            color: var(--carbon-800);
+        }
+
+        .tipo-weight-name {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            color: var(--carbon-500);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* === LOGO === */
+        #logo {
+            background: var(--arena-50);
+        }
+
+        .logo-showcase {
+            max-width: 1400px;
+            margin: var(--space-3xl) auto 0;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-xl);
+        }
+
+        @media (max-width: 800px) {
+            .logo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .logo-variant {
+            padding: var(--space-3xl);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            min-height: 300px;
+            transition: transform var(--transition-base);
+        }
+
+        .logo-variant:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-variant.light {
+            background: white;
+            border: 1px solid var(--arena-200);
+        }
+
+        .logo-variant.dark {
+            background: var(--carbon-900);
+        }
+
+        .logo-variant.terracota {
+            background: var(--terracota-700);
+        }
+
+        .logo-variant.arena {
+            background: var(--arena-200);
+        }
+
+        .logo-variant svg,
+        .logo-variant img,
+        .logo-variant object {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+
+        /* Filtros para cambiar el color del logo según el fondo */
+        .logo-variant.dark img,
+        .logo-variant.dark object {
+            filter: brightness(0) invert(0.95);
+        }
+
+        .logo-variant.terracota img,
+        .logo-variant.terracota object {
+            filter: brightness(0) invert(1);
+        }
+
+        .logo-variant.light img,
+        .logo-variant.light object,
+        .logo-variant.arena img,
+        .logo-variant.arena object {
+            filter: none;
+        }
+
+        /* Tamaño aumentado para la variante con tagline */
+        .logo-variant.arena svg {
+            max-width: 450px;
+        }
+
+        .logo-label {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-top: var(--space-lg);
+            color: var(--carbon-500);
+        }
+
+        .logo-variant.dark .logo-label,
+        .logo-variant.terracota .logo-label {
+            color: var(--arena-300);
+        }
+
+        .logo-construction {
+            margin-top: var(--space-4xl);
+            padding: var(--space-3xl);
+            background: white;
+            border-radius: 4px;
+            border: 1px solid var(--arena-200);
+        }
+
+        .logo-construction h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--carbon-800);
+            margin-bottom: var(--space-lg);
+        }
+
+        .logo-rules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .logo-rule {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+        }
+
+        .logo-rule-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--maguey-600);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .logo-rule-icon svg {
+            width: 16px;
+            height: 16px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .logo-rule p {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: var(--carbon-600);
+            line-height: 1.5;
+        }
+
+        /* === ELEMENTOS GRÁFICOS === */
+        #elementos {
+            background: white;
+        }
+
+        .elementos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+            max-width: 1400px;
+            margin: var(--space-3xl) auto 0;
+        }
+
+        @media (max-width: 900px) {
+            .elementos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .elemento-card {
+            background: var(--arena-50);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform var(--transition-base), box-shadow var(--transition-base);
+        }
+
+        .elemento-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .elemento-preview {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--crema-400);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .elemento-preview svg {
+            width: 80%;
+            height: 80%;
+        }
+
+        .elemento-info {
+            padding: var(--space-lg);
+        }
+
+        .elemento-info h4 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--carbon-800);
+            margin-bottom: var(--space-sm);
+        }
+
+        .elemento-info p {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: var(--carbon-500);
+            line-height: 1.5;
+        }
+
+        /* === ICONOS === */
+        #iconos {
+            background: var(--carbon-800);
+            color: var(--crema-400);
+        }
+
+        #iconos .section-label {
+            color: var(--terracota-400);
+        }
+
+        #iconos .section-title {
+            color: var(--crema-400);
+        }
+
+        #iconos .section-subtitle {
+            color: var(--arena-400);
+        }
+
+        .iconos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: var(--space-lg);
+            max-width: 1200px;
+            margin: var(--space-3xl) auto 0;
+        }
+
+        .icono-card {
+            background: var(--carbon-700);
+            border-radius: 4px;
+            padding: var(--space-xl);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-md);
+            transition: transform var(--transition-base), background var(--transition-base);
+        }
+
+        .icono-card:hover {
+            transform: scale(1.05);
+            background: var(--carbon-600);
+        }
+
+        .icono-card svg {
+            width: 48px;
+            height: 48px;
+            stroke: var(--terracota-400);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .icono-card span {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--arena-400);
+            text-align: center;
+        }
+
+        /* === APLICACIONES === */
+        #aplicaciones {
+            background: linear-gradient(180deg, var(--arena-100) 0%, var(--crema-300) 100%);
+        }
+
+        .aplicaciones-showcase {
+            max-width: 1400px;
+            margin: var(--space-3xl) auto 0;
+        }
+
+        .app-mockup {
+            margin-bottom: var(--space-4xl);
+        }
+
+        .app-mockup-title {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--terracota-600);
+            margin-bottom: var(--space-lg);
+        }
+
+        .packaging-mockup {
+            background: var(--carbon-900);
+            border-radius: 8px;
+            padding: var(--space-3xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .packaging-mockup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 30% 40%, rgba(196, 90, 61, 0.1) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 60%, rgba(182, 156, 110, 0.08) 0%, transparent 50%);
+        }
+
+        .packaging-label {
+            background: var(--crema-400);
+            width: 280px;
+            padding: var(--space-2xl);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        .packaging-label::before {
+            content: '';
+            position: absolute;
+            top: var(--space-md);
+            left: var(--space-md);
+            right: var(--space-md);
+            bottom: var(--space-md);
+            border: 1px solid var(--terracota-300);
+        }
+
+        .packaging-logo {
+            margin-bottom: var(--space-lg);
+        }
+
+        .packaging-logo svg,
+        .packaging-logo img {
+            width: 180px;
+            height: auto;
+        }
+
+        .packaging-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--terracota-500);
+            margin: var(--space-md) auto;
+        }
+
+        .packaging-tagline {
+            font-family: var(--font-serif);
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--carbon-600);
+            margin-bottom: var(--space-lg);
+        }
+
+        .packaging-info {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--carbon-500);
+        }
+
+        .packaging-year {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--terracota-700);
+            margin-top: var(--space-md);
+        }
+
+        .business-card-mockup {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+
+        @media (max-width: 700px) {
+            .business-card-mockup {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .business-card {
+            aspect-ratio: 1.6;
+            border-radius: 4px;
+            padding: var(--space-xl);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            transition: transform var(--transition-base);
+        }
+
+        .business-card:hover {
+            transform: translateY(-4px) rotateX(5deg);
+        }
+
+        .business-card.front {
+            background: var(--crema-400);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .business-card.front svg {
+            width: 60%;
+            height: auto;
+        }
+
+        .business-card.back {
+            background: var(--carbon-900);
+        }
+
+        .card-logo {
+            width: 100px;
+        }
+
+        .card-logo svg {
+            width: 100%;
+            height: auto;
+        }
+
+        .card-details {
+            color: var(--arena-300);
+        }
+
+        .card-name {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--crema-400);
+            margin-bottom: var(--space-xs);
+        }
+
+        .card-title {
+            font-family: var(--font-serif);
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--terracota-400);
+            margin-bottom: var(--space-md);
+        }
+
+        .card-contact {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            line-height: 1.8;
+            color: var(--arena-400);
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--carbon-900);
+            padding: var(--space-4xl) var(--space-2xl);
+            text-align: center;
+        }
+
+        .footer-logo {
+            margin-bottom: var(--space-lg);
+        }
+
+        .footer-logo svg,
+        .footer-logo img {
+            width: 200px;
+            height: auto;
+            filter: brightness(0) invert(0.95);
+        }
+
+        .footer-tagline {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--arena-400);
+            margin-bottom: var(--space-xl);
+        }
+
+        .footer-divider {
+            width: 80px;
+            height: 1px;
+            background: var(--terracota-600);
+            margin: 0 auto var(--space-xl);
+        }
+
+        .footer-info {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            color: var(--carbon-500);
+        }
+
+        .footer-year {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--terracota-700);
+            margin-top: var(--space-lg);
+        }
+
+        /* === ANIMATIONS === */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="nav">
+        <div class="nav-logo">Pan Arizpe</div>
+        <ul class="nav-links">
+            <li><a href="#concepto">Concepto</a></li>
+            <li><a href="#colores">Colores</a></li>
+            <li><a href="#tipografia">Tipografía</a></li>
+            <li><a href="#logo">Logo</a></li>
+            <li><a href="#elementos">Elementos</a></li>
+            <li><a href="#iconos">Iconos</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-year">1591</div>
+        <div class="hero-content">
+            <p class="hero-tagline">Sistema de Identidad de Marca</p>
+            <div class="hero-logo" style="display: flex; justify-content: center;">
+                <!-- Logo Oficial Pan Arizpe - SVG externo -->
+                <object data="Logotipo.svg" type="image/svg+xml" style="width: 100%; max-width: 400px; filter: brightness(0) invert(0.95);">
+                    <img src="Logotipo.svg" alt="Pan Arizpe Logo" style="width: 100%; max-width: 400px; filter: brightness(0) invert(0.95);">
+                </object>
+            </div>
+            <p class="hero-subtitle">"En el norte, el tiempo tiene otro ritmo."</p>
+        </div>
+        <div class="scroll-indicator">
+            <span>Explorar</span>
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+    </section>
+
+    <!-- Concepto -->
+    <section id="concepto">
+        <div class="section-label">01 / Concepto de Marca</div>
+        <h2 class="section-title">El tiempo como<br>ingrediente principal</h2>
+        <p class="section-subtitle">Pan Arizpe no compite en sabor solamente, compite en autoridad histórica. Es pan de fermentación viva del norte.</p>
+        
+        <div class="concepto-grid">
+            <div class="concepto-card">
+                <h3>La Promesa</h3>
+                <p>Preservar la técnica de fermentación natural de <span class="highlight">1591</span> para ofrecer el pan más honesto y refinado del norte de México. No usamos químicos. No usamos atajos. Usamos <span class="highlight">tiempo</span>, <span class="highlight">tradición</span> y <span class="highlight">materias primas premium</span>.</p>
+            </div>
+            
+            <div class="concepto-card">
+                <h3>Personalidad de Marca</h3>
+                <div class="values-list">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        </div>
+                        <div class="value-content">
+                            <h4>Sofisticada con raíces</h4>
+                            <p>Elegancia contemporánea anclada en herencia centenaria</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <div class="value-content">
+                            <h4>Autoritaria</h4>
+                            <p>Somos los expertos. 400+ años de conocimiento</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                        </div>
+                        <div class="value-content">
+                            <h4>Honesta</h4>
+                            <p>Ingredientes reales. Procesos transparentes</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11"/></svg>
+                        </div>
+                        <div class="value-content">
+                            <h4>Orgullosa de su origen</h4>
+                            <p>Ramos Arizpe, Coahuila — el corazón del norte</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colores -->
+    <section id="colores">
+        <div class="section-label">02 / Sistema de Color</div>
+        <h2 class="section-title">Paleta cromática</h2>
+        <p class="section-subtitle">Colores extraídos de la tierra norteña, la fermentación del pulque y la calidez del pan recién horneado.</p>
+        
+        <div class="color-section">
+            <h3 class="color-section-title">Colores Primarios</h3>
+            
+            <!-- Terracota Scale -->
+            <div class="color-scale">
+                <div class="color-scale-item" style="background: #6B2D1F;"><span class="color-scale-label" style="color: white;">900</span></div>
+                <div class="color-scale-item" style="background: #8B3D2A;"><span class="color-scale-label" style="color: white;">800</span></div>
+                <div class="color-scale-item" style="background: #A84A32;"><span class="color-scale-label" style="color: white;">700</span></div>
+                <div class="color-scale-item" style="background: #C45A3D;"><span class="color-scale-label" style="color: white;">600</span></div>
+                <div class="color-scale-item" style="background: #D4704F;"><span class="color-scale-label" style="color: white;">500</span></div>
+                <div class="color-scale-item" style="background: #E08A6A;"><span class="color-scale-label">400</span></div>
+                <div class="color-scale-item" style="background: #EBA78A;"><span class="color-scale-label">300</span></div>
+                <div class="color-scale-item" style="background: #F5C5AD;"><span class="color-scale-label">200</span></div>
+                <div class="color-scale-item" style="background: #FBE4D7;"><span class="color-scale-label">100</span></div>
+                <div class="color-scale-item" style="background: #FEF5F0;"><span class="color-scale-label">50</span></div>
+            </div>
+
+            <div class="color-palette">
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #A84A32;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Terracota Pulque</div>
+                        <div class="color-hex">#A84A32</div>
+                        <div class="color-description">El corazón de la fermentación. Color principal de marca.</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #7A684A;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Arena del Desierto</div>
+                        <div class="color-hex">#7A684A</div>
+                        <div class="color-description">La tierra del norte. Fondos y elementos secundarios.</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #1A1918;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Carbón Ceniza</div>
+                        <div class="color-hex">#1A1918</div>
+                        <div class="color-description">Autoridad y sofisticación. Textos y fondos premium.</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="color-section-title">Colores Secundarios</h3>
+            
+            <div class="color-palette">
+                <div class="color-card">
+                    <div class="color-swatch" style="background: linear-gradient(135deg, #C79620 0%, #D4AA40 100%);"></div>
+                    <div class="color-info">
+                        <div class="color-name">Oro Tiempo</div>
+                        <div class="color-hex">#C79620</div>
+                        <div class="color-description">Acentos de lujo. Detalles premium y años.</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #4E7C68;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Maguey Verde</div>
+                        <div class="color-hex">#4E7C68</div>
+                        <div class="color-description">Referencia al pulque. Elementos naturales.</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #F5E6D0;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Crema Pan</div>
+                        <div class="color-hex">#F5E6D0</div>
+                        <div class="color-description">El producto mismo. Fondos claros y etiquetas.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tipografía -->
+    <section id="tipografia">
+        <div class="section-label">03 / Sistema Tipográfico</div>
+        <h2 class="section-title">Tipografía</h2>
+        <p class="section-subtitle">Tres familias tipográficas que equilibran herencia, elegancia y funcionalidad moderna.</p>
+        
+        <div class="tipo-showcase">
+            <!-- Display -->
+            <div class="tipo-family">
+                <div class="tipo-header">
+                    <span class="tipo-name">Playfair Display</span>
+                    <span class="tipo-use">Títulos, Logo, Años</span>
+                </div>
+                <div class="tipo-sample-display">Pan Arizpe 1591</div>
+                <div class="tipo-weights">
+                    <div class="tipo-weight">
+                        <div class="tipo-weight-sample" style="font-family: var(--font-display); font-weight: 400;">Aa</div>
+                        <div class="tipo-weight-name">Regular</div>
+                    </div>
+                    <div class="tipo-weight">
+                        <div class="tipo-weight-sample" style="font-family: var(--font-display); font-weight: 500;">Aa</div>
+                        <div class="tipo-weight-name">Medium</div>
+                    </div>
+                    <div class="tipo-weight">
+                        <div class="tipo-weight-sample" style="font-family: var(--font-display); font-weight: 600;">Aa</div>
+                        <div class="tipo-weight-name">SemiBold</div>
+                    </div>
+                    <div class="tipo-weight">
+                        <div class="tipo-weight-sample" style="font-family: var(--font-display); font-weight: 700;">Aa</div>
+                        <div class="tipo-weight-name">Bold</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Serif -->
+            <div class="tipo-family">
+                <div class="tipo-header">
+                    <span class="tipo-name">Cormorant Garamond</span>
+                    <span class="tipo-use">Taglines, Citas, Descripciones elegantes</span>
+                </div>
+                <div class="tipo-sample-serif">"En el norte, <em>el tiempo</em> tiene otro ritmo."</div>
+                <div class="tipo-weights">
+                    <div class="tipo-weight">
+                        <div class="tipo-weight-sample" style="font-family: var(--font-serif); font-weight: 400;">Aa</div>
+                        <div class="tipo-weight-name">Regular</div>
+                    </div>
+                    <div class="tipo-weight">
+                        <div class="tipo-weight-sample" style="font-family: var(--font-serif); font-weight: 400; font-style: italic;">Aa</div>
+                        <div class="tipo-weight-name">Italic</div>
+                    </div>
+                    <div class="tipo-weight">
+                        <div class="tipo-weight-sample" style="font-family: var(--font-serif); font-weight: 500;">Aa</div>
+                        <div class="tipo-weight-name">Medium</div>
+                    </div>
+                    <div class="tipo-weight">
+                        <div class="tipo-weight-sample" style="font-family: var(--font-serif); font-weight: 600;">Aa</div>
+                        <div class="tipo-weight-name">SemiBold</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sans -->
+            <div class="tipo-family">
+                <div class="tipo-header">
+                    <span class="tipo-name">DM Sans</span>
+                    <span class="tipo-use">Cuerpo de texto, UI, Etiquetas, Información</span>
+                </div>
+                <div class="tipo-sample-sans">Cada pieza es elaborada a mano con ingredientes locales y el orgullo de Ramos Arizpe, Coahuila. Desde 1591, la fermentación natural con pulque real ha sido el secreto que define nuestra tierra.</div>
+                <div class="tipo-weights">
+                    <div class="tipo-weight">
+                        <div class="tipo-weight-sample" style="font-family: var(--font-sans); font-weight: 400;">Aa</div>
+                        <div class="tipo-weight-name">Regular</div>
+                    </div>
+                    <div class="tipo-weight">
+                        <div class="tipo-weight-sample" style="font-family: var(--font-sans); font-weight: 500;">Aa</div>
+                        <div class="tipo-weight-name">Medium</div>
+                    </div>
+                    <div class="tipo-weight">
+                        <div class="tipo-weight-sample" style="font-family: var(--font-sans); font-weight: 600;">Aa</div>
+                        <div class="tipo-weight-name">SemiBold</div>
+                    </div>
+                    <div class="tipo-weight">
+                        <div class="tipo-weight-sample" style="font-family: var(--font-sans); font-weight: 700;">Aa</div>
+                        <div class="tipo-weight-name">Bold</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo -->
+    <section id="logo">
+        <div class="section-label">04 / Logotipo</div>
+        <h2 class="section-title">Marca principal</h2>
+        <p class="section-subtitle">Un logotipo que comunica herencia, sofisticación y autoridad desde el primer vistazo.</p>
+        
+        <div class="logo-showcase">
+            <div class="logo-grid">
+                <!-- Primary on Light -->
+                <div class="logo-variant light">
+                    <object data="Logotipo.svg" type="image/svg+xml" style="width: 100%; max-width: 300px; height: auto;">
+                        <img src="Logotipo.svg" alt="Pan Arizpe Logo" style="width: 100%; max-width: 300px; height: auto;">
+                    </object>
+                    <span class="logo-label">Primario / Fondo claro</span>
+                </div>
+                
+                <!-- Primary on Dark -->
+                <div class="logo-variant dark">
+                    <object data="Logotipo.svg" type="image/svg+xml" style="width: 100%; max-width: 300px; height: auto;">
+                        <img src="Logotipo.svg" alt="Pan Arizpe Logo" style="width: 100%; max-width: 300px; height: auto;">
+                    </object>
+                    <span class="logo-label">Primario / Fondo oscuro</span>
+                </div>
+                
+                <!-- On Terracota -->
+                <div class="logo-variant terracota">
+                    <object data="Logotipo.svg" type="image/svg+xml" style="width: 100%; max-width: 300px; height: auto;">
+                        <img src="Logotipo.svg" alt="Pan Arizpe Logo" style="width: 100%; max-width: 300px; height: auto;">
+                    </object>
+                    <span class="logo-label">Sobre terracota</span>
+                </div>
+                
+                <!-- With Tagline -->
+                <div class="logo-variant arena">
+                    <svg viewBox="0 0 300 160" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <!-- Logo externo -->
+                        <image href="Logotipo.svg" x="0" y="0" width="300" height="150" preserveAspectRatio="xMidYMid meet"/>
+                        <!-- Línea decorativa -->
+                        <line x1="80" y1="115" x2="220" y2="115" stroke="#A84A32" stroke-width="1"/>
+                        <!-- Tagline -->
+                        <text x="150" y="140" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="12" font-style="italic" fill="#54514D" letter-spacing="0.08em">El pan que define al norte</text>
+                    </svg>
+                    <span class="logo-label">Con tagline</span>
+                </div>
+            </div>
+            
+            <div class="logo-construction">
+                <h3>Reglas de uso</h3>
+                <div class="logo-rules">
+                    <div class="logo-rule">
+                        <div class="logo-rule-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+                        </div>
+                        <p>Mantener siempre el espaciado mínimo equivalente a la altura de la "A" alrededor del logo</p>
+                    </div>
+                    <div class="logo-rule">
+                        <div class="logo-rule-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+                        </div>
+                        <p>El diamante central y las líneas laterales son elementos esenciales que no deben omitirse</p>
+                    </div>
+                    <div class="logo-rule">
+                        <div class="logo-rule-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+                        </div>
+                        <p>Usar solo las combinaciones de color aprobadas. Nunca sobre fondos de baja legibilidad</p>
+                    </div>
+                    <div class="logo-rule">
+                        <div class="logo-rule-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+                        </div>
+                        <p>En tamaños reducidos (menos de 100px), usar la versión simplificada sin tagline</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Elementos Gráficos -->
+    <section id="elementos">
+        <div class="section-label">05 / Elementos Gráficos</div>
+        <h2 class="section-title">Sistema visual</h2>
+        <p class="section-subtitle">Patrones y elementos que refuerzan la narrativa de tiempo, tradición y territorio norteño.</p>
+        
+        <div class="elementos-grid">
+            <!-- Diamante -->
+            <div class="elemento-card">
+                <div class="elemento-preview" style="background: var(--carbon-900);">
+                    <svg viewBox="0 0 100 100" fill="none">
+                        <path d="M50 10 L70 50 L50 90 L30 50 Z" stroke="#C45A3D" stroke-width="1.5" fill="none"/>
+                        <path d="M50 20 L62 50 L50 80 L38 50 Z" stroke="#C45A3D" stroke-width="1" fill="none" opacity="0.5"/>
+                        <path d="M50 30 L56 50 L50 70 L44 50 Z" fill="#C45A3D" opacity="0.3"/>
+                    </svg>
+                </div>
+                <div class="elemento-info">
+                    <h4>Diamante del Norte</h4>
+                    <p>Símbolo principal. Representa el valor, la precisión artesanal y la singularidad del producto. Usado como separador y acento.</p>
+                </div>
+            </div>
+            
+            <!-- Línea de tiempo -->
+            <div class="elemento-card">
+                <div class="elemento-preview">
+                    <svg viewBox="0 0 200 60" fill="none">
+                        <line x1="10" y1="30" x2="190" y2="30" stroke="#A84A32" stroke-width="1"/>
+                        <circle cx="30" cy="30" r="4" fill="#A84A32"/>
+                        <circle cx="100" cy="30" r="4" fill="#A84A32"/>
+                        <circle cx="170" cy="30" r="4" fill="#A84A32"/>
+                        <text x="30" y="50" text-anchor="middle" font-family="Playfair Display, serif" font-size="8" fill="#6B6862">1591</text>
+                        <text x="100" y="50" text-anchor="middle" font-family="Playfair Display, serif" font-size="8" fill="#6B6862">Tradición</text>
+                        <text x="170" y="50" text-anchor="middle" font-family="Playfair Display, serif" font-size="8" fill="#6B6862">Hoy</text>
+                    </svg>
+                </div>
+                <div class="elemento-info">
+                    <h4>Línea de Tiempo</h4>
+                    <p>Conecta visualmente el pasado con el presente. Usada en narrativas de producto y materiales educativos.</p>
+                </div>
+            </div>
+            
+            <!-- Marco tradicional -->
+            <div class="elemento-card">
+                <div class="elemento-preview">
+                    <svg viewBox="0 0 120 100" fill="none">
+                        <rect x="15" y="10" width="90" height="80" stroke="#A84A32" stroke-width="1" fill="none"/>
+                        <line x1="15" y1="10" x2="25" y2="10" stroke="#A84A32" stroke-width="2"/>
+                        <line x1="15" y1="10" x2="15" y2="20" stroke="#A84A32" stroke-width="2"/>
+                        <line x1="105" y1="10" x2="95" y2="10" stroke="#A84A32" stroke-width="2"/>
+                        <line x1="105" y1="10" x2="105" y2="20" stroke="#A84A32" stroke-width="2"/>
+                        <line x1="15" y1="90" x2="25" y2="90" stroke="#A84A32" stroke-width="2"/>
+                        <line x1="15" y1="90" x2="15" y2="80" stroke="#A84A32" stroke-width="2"/>
+                        <line x1="105" y1="90" x2="95" y2="90" stroke="#A84A32" stroke-width="2"/>
+                        <line x1="105" y1="90" x2="105" y2="80" stroke="#A84A32" stroke-width="2"/>
+                        <text x="60" y="55" text-anchor="middle" font-family="Playfair Display, serif" font-size="10" fill="#1A1918">Contenido</text>
+                    </svg>
+                </div>
+                <div class="elemento-info">
+                    <h4>Marco de Herencia</h4>
+                    <p>Enmarca contenido importante con aire artesanal. Para citas, certificaciones y momentos destacados.</p>
+                </div>
+            </div>
+            
+            <!-- Patrón de trigo -->
+            <div class="elemento-card">
+                <div class="elemento-preview" style="background: var(--arena-200);">
+                    <svg viewBox="0 0 150 100" fill="none">
+                        <g opacity="0.6">
+                            <path d="M30 80 Q30 50 40 30" stroke="#A84A32" stroke-width="1" fill="none"/>
+                            <ellipse cx="40" cy="25" rx="3" ry="6" fill="#A84A32" transform="rotate(-20 40 25)"/>
+                            <ellipse cx="37" cy="32" rx="3" ry="6" fill="#A84A32" transform="rotate(-30 37 32)"/>
+                            <ellipse cx="35" cy="40" rx="3" ry="6" fill="#A84A32" transform="rotate(-25 35 40)"/>
+                        </g>
+                        <g opacity="0.6">
+                            <path d="M75 80 Q75 40 75 20" stroke="#A84A32" stroke-width="1" fill="none"/>
+                            <ellipse cx="75" cy="18" rx="3" ry="6" fill="#A84A32"/>
+                            <ellipse cx="70" cy="28" rx="3" ry="6" fill="#A84A32" transform="rotate(-15 70 28)"/>
+                            <ellipse cx="80" cy="28" rx="3" ry="6" fill="#A84A32" transform="rotate(15 80 28)"/>
+                            <ellipse cx="68" cy="40" rx="3" ry="6" fill="#A84A32" transform="rotate(-20 68 40)"/>
+                            <ellipse cx="82" cy="40" rx="3" ry="6" fill="#A84A32" transform="rotate(20 82 40)"/>
+                        </g>
+                        <g opacity="0.6">
+                            <path d="M120 80 Q120 50 110 30" stroke="#A84A32" stroke-width="1" fill="none"/>
+                            <ellipse cx="110" cy="25" rx="3" ry="6" fill="#A84A32" transform="rotate(20 110 25)"/>
+                            <ellipse cx="113" cy="32" rx="3" ry="6" fill="#A84A32" transform="rotate(30 113 32)"/>
+                            <ellipse cx="115" cy="40" rx="3" ry="6" fill="#A84A32" transform="rotate(25 115 40)"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="elemento-info">
+                    <h4>Patrón de Trigo</h4>
+                    <p>Ilustración estilizada del ingrediente principal. Para fondos, texturas y elementos decorativos.</p>
+                </div>
+            </div>
+            
+            <!-- Sello de autenticidad -->
+            <div class="elemento-card">
+                <div class="elemento-preview">
+                    <svg viewBox="0 0 100 100" fill="none">
+                        <circle cx="50" cy="50" r="38" stroke="#A84A32" stroke-width="1.5" fill="none"/>
+                        <circle cx="50" cy="50" r="32" stroke="#A84A32" stroke-width="0.5" fill="none"/>
+                        <text x="50" y="42" text-anchor="middle" font-family="Playfair Display, serif" font-size="8" fill="#1A1918" letter-spacing="0.1em">FERMENTACIÓN</text>
+                        <text x="50" y="54" text-anchor="middle" font-family="Playfair Display, serif" font-size="10" font-weight="600" fill="#A84A32">NATURAL</text>
+                        <text x="50" y="66" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="7" font-style="italic" fill="#6B6862">desde 1591</text>
+                        <path d="M25 50 L30 50" stroke="#A84A32" stroke-width="1"/>
+                        <path d="M70 50 L75 50" stroke="#A84A32" stroke-width="1"/>
+                    </svg>
+                </div>
+                <div class="elemento-info">
+                    <h4>Sello de Autenticidad</h4>
+                    <p>Distintivo de calidad y origen. Para packaging, certificados y comunicaciones oficiales.</p>
+                </div>
+            </div>
+            
+            <!-- Textura -->
+            <div class="elemento-card">
+                <div class="elemento-preview" style="background: linear-gradient(135deg, var(--terracota-700) 0%, var(--terracota-800) 100%);">
+                    <svg viewBox="0 0 100 100" fill="none" style="opacity: 0.3;">
+                        <pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse">
+                            <circle cx="10" cy="10" r="0.5" fill="white"/>
+                            <circle cx="30" cy="25" r="0.3" fill="white"/>
+                            <circle cx="50" cy="15" r="0.4" fill="white"/>
+                            <circle cx="70" cy="35" r="0.3" fill="white"/>
+                            <circle cx="90" cy="20" r="0.5" fill="white"/>
+                            <circle cx="20" cy="45" r="0.4" fill="white"/>
+                            <circle cx="40" cy="55" r="0.3" fill="white"/>
+                            <circle cx="60" cy="40" r="0.5" fill="white"/>
+                            <circle cx="80" cy="60" r="0.4" fill="white"/>
+                            <circle cx="15" cy="75" r="0.3" fill="white"/>
+                            <circle cx="35" cy="85" r="0.5" fill="white"/>
+                            <circle cx="55" cy="70" r="0.4" fill="white"/>
+                            <circle cx="75" cy="90" r="0.3" fill="white"/>
+                            <circle cx="95" cy="80" r="0.4" fill="white"/>
+                            <circle cx="5" cy="95" r="0.5" fill="white"/>
+                        </pattern>
+                        <rect width="100" height="100" fill="url(#grain)"/>
+                    </svg>
+                </div>
+                <div class="elemento-info">
+                    <h4>Textura Artesanal</h4>
+                    <p>Ruido sutil que añade calidez orgánica. Aplicar en fondos y fotografías de producto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Iconos -->
+    <section id="iconos">
+        <div class="section-label">06 / Iconografía</div>
+        <h2 class="section-title">Sistema de iconos</h2>
+        <p class="section-subtitle">Iconos de línea fina que comunican los valores y atributos del producto.</p>
+        
+        <div class="iconos-grid">
+            <!-- Tiempo -->
+            <div class="icono-card">
+                <svg viewBox="0 0 48 48" fill="none">
+                    <circle cx="24" cy="24" r="18" stroke-width="1.5"/>
+                    <path d="M24 12v12l8 4" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span>Tiempo</span>
+            </div>
+            
+            <!-- Fermentación -->
+            <div class="icono-card">
+                <svg viewBox="0 0 48 48" fill="none">
+                    <path d="M12 36c0-8 6-12 12-12s12 4 12 12" stroke-width="1.5" stroke-linecap="round"/>
+                    <circle cx="16" cy="30" r="1.5"/>
+                    <circle cx="24" cy="28" r="2"/>
+                    <circle cx="32" cy="30" r="1.5"/>
+                    <circle cx="20" cy="33" r="1"/>
+                    <circle cx="28" cy="32" r="1"/>
+                    <path d="M24 12v12" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M20 16l4-4 4 4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Fermentación</span>
+            </div>
+            
+            <!-- Artesanal -->
+            <div class="icono-card">
+                <svg viewBox="0 0 48 48" fill="none">
+                    <path d="M24 8c-8 0-14 6-14 14v16h28V22c0-8-6-14-14-14z" stroke-width="1.5"/>
+                    <path d="M18 38v-8c0-3.3 2.7-6 6-6s6 2.7 6 6v8" stroke-width="1.5"/>
+                </svg>
+                <span>Artesanal</span>
+            </div>
+            
+            <!-- Ingredientes -->
+            <div class="icono-card">
+                <svg viewBox="0 0 48 48" fill="none">
+                    <path d="M24 40V20" stroke-width="1.5"/>
+                    <path d="M24 8c0 0-4 4-4 8s4 4 4 4 4 0 4-4-4-8-4-8z" stroke-width="1.5"/>
+                    <path d="M18 16c-2 0-4 2-4 4" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M30 16c2 0 4 2 4 4" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span>Ingredientes</span>
+            </div>
+            
+            <!-- Norte -->
+            <div class="icono-card">
+                <svg viewBox="0 0 48 48" fill="none">
+                    <circle cx="24" cy="24" r="16" stroke-width="1.5"/>
+                    <path d="M24 8v8M24 32v8M8 24h8M32 24h8" stroke-width="1.5"/>
+                    <path d="M24 16l-3 8 3 3 3-3-3-8z" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+                <span>Norte</span>
+            </div>
+            
+            <!-- Tradición -->
+            <div class="icono-card">
+                <svg viewBox="0 0 48 48" fill="none">
+                    <path d="M12 40V20l12-12 12 12v20" stroke-width="1.5" stroke-linejoin="round"/>
+                    <path d="M20 40v-10h8v10" stroke-width="1.5"/>
+                    <circle cx="24" cy="22" r="3" stroke-width="1.5"/>
+                </svg>
+                <span>Tradición</span>
+            </div>
+            
+            <!-- Calidad -->
+            <div class="icono-card">
+                <svg viewBox="0 0 48 48" fill="none">
+                    <path d="M24 6l4 8 9 1-6.5 6.5L32 31l-8-4-8 4 1.5-9.5L11 15l9-1 4-8z" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+                <span>Calidad</span>
+            </div>
+            
+            <!-- Origen -->
+            <div class="icono-card">
+                <svg viewBox="0 0 48 48" fill="none">
+                    <path d="M24 42s14-10 14-22c0-7.7-6.3-14-14-14S10 12.3 10 20c0 12 14 22 14 22z" stroke-width="1.5"/>
+                    <circle cx="24" cy="20" r="5" stroke-width="1.5"/>
+                </svg>
+                <span>Origen</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aplicaciones -->
+    <section id="aplicaciones">
+        <div class="section-label">07 / Aplicaciones</div>
+        <h2 class="section-title">En contexto</h2>
+        <p class="section-subtitle">La identidad de Pan Arizpe aplicada a puntos de contacto clave con el consumidor.</p>
+        
+        <div class="aplicaciones-showcase">
+            <!-- Packaging -->
+            <div class="app-mockup">
+                <div class="app-mockup-title">Etiqueta de Producto</div>
+                <div class="packaging-mockup">
+                    <div class="packaging-label">
+                        <div class="packaging-logo">
+                            <img src="Logotipo.svg" alt="Pan Arizpe Logo" style="width: 180px; height: auto;">
+                        </div>
+                        <div class="packaging-divider"></div>
+                        <p class="packaging-tagline">Fermentación Natural<br>con Pulque Real</p>
+                        <p class="packaging-info">Ramos Arizpe, Coahuila</p>
+                        <p class="packaging-year">1591</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Business Card -->
+            <div class="app-mockup">
+                <div class="app-mockup-title">Tarjeta de Presentación</div>
+                <div class="business-card-mockup">
+                    <div class="business-card front">
+                        <img src="Logotipo.svg" alt="Pan Arizpe Logo" style="width: 60%; height: auto;">
+                    </div>
+                    <div class="business-card back">
+                        <div class="card-logo">
+                            <svg viewBox="0 0 120 60" fill="none">
+                                <text x="60" y="18" text-anchor="middle" font-family="'Playfair Display', serif" font-size="10" font-weight="500" fill="#F9F0E3" letter-spacing="0.35em">PAN</text>
+                                <text x="60" y="45" text-anchor="middle" font-family="'Playfair Display', serif" font-size="26" font-weight="600" fill="#F9F0E3" letter-spacing="0.02em">ARIZPE</text>
+                            </svg>
+                        </div>
+                        <div class="card-details">
+                            <p class="card-name">María González</p>
+                            <p class="card-title">Maestra Panadera</p>
+                            <p class="card-contact">
+                                maria@panarizpe.mx<br>
+                                +52 844 123 4567<br>
+                                Ramos Arizpe, Coahuila
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+            <img src="Logotipo.svg" alt="Pan Arizpe Logo" style="width: 200px; height: auto;">
+        </div>
+        <p class="footer-tagline">"En el norte, el tiempo tiene otro ritmo."</p>
+        <div class="footer-divider"></div>
+        <p class="footer-info">Sistema de Identidad de Marca — Pan Arizpe<br>Ramos Arizpe, Coahuila, México</p>
+        <p class="footer-year">1591</p>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Fade in on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
